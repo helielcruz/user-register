@@ -1,23 +1,43 @@
 @charset "UTF-8";
+@font-face { 
+   font-family: 'PoiretOne-Regular';
+   src: url('./Poiret_One/PoiretOne-Regular.ttf') format('truetype');
+ }
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 .FormContainer{
     display: block;
     position: relative;
     margin-top: 10%;
 }
+
 .FormContainer h1{
     text-align: center;
+    font-family: 'PoiretOne-Regular';
 }
+
 .FormContainer form {
     display: flex;
     flex-flow: column nowrap;
     width: 25%;
     margin: 0 auto;
-    border: solid 1px;
     border-radius: 5px;
+    box-shadow: 0px 0px 5px 1px black;
     padding: 15px;
 }
 
 .FormContainer input {
     margin: 5px 0px;
+}
+.FormContainer button {
+    background-color: rgb(73, 221, 73);
+    border: none;
+    box-shadow: 0px 0px 3px 1px rgb(32, 49, 32);
+    color: white;
+    font-weight:600;
+    margin-top: 2%;
+    padding: 2%;
 }
