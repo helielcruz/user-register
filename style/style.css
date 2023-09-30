@@ -31,6 +31,9 @@
 
 .FormContainer input {
     margin: 5px 0px;
+    border: solid 1px gray;
+    outline: none;
+    padding: 2%;
 }
 
 .FormContainer button {
