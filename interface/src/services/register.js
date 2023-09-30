@@ -36,11 +36,15 @@ let buttonRegister = document.getElementById('form-register').addEventListener('
 
         async function registerRequest() {
             try {
-                const response = await fetch('index.php', options)
+                const response = await fetch('../../../api/controllers/register.php', options)
+
+                const data = await response.json();
+
+                console.log(data);
 
                 alert('Usuário cadastrado!');
 
-                window.open('./src/login/login.html', '_self')
+                //window.open('../../../index.html', '_self')
             } catch (error) {
                 console.error(error)
             }

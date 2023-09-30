@@ -3,24 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../../style/style.css">
     <title>Cadastro de usuário</title>
 </head>
 <body>
     <div>
         <div class="FormContainer">
-            <h1>Login</h1>
+            <h1>Cadastro de usuário</h1>
             <form id="form-register" action="">
+                <label for="">Nome</label>
+                <input id="inputName" type="text" placeholder="Informe seu nome">
+
                 <label for="">Email</label>
                 <input id="inputEmail" type="text" placeholder="Informe seu email">
 
                 <label for="">Senha</label>
                 <input id="inputPassword" type="password" placeholder="Informe sua senha">
 
-                <button type="submit">Entrar</button>
+                <label for="">Confirmação de senha</label>
+                <input id="inputConfirmPassword"type="password" placeholder="Confirme a senha">
+
+                <button type="submit">Cadastrar</button>
             </form>
         </div>
     </div>
-    <script src="./app.js"></script>
+    <script src="../services/register.js"></script>
 </body>
 </html>
