@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.FormContainer{
+    display: block;
+    position: relative;
+    margin-top: 10%;
+}
+.FormContainer h1{
+    text-align: center;
+}
+.FormContainer form {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 25%;
+    margin: 0 auto;
+    border: solid 1px;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.FormContainer input {
+    margin: 5px 0px;
+}
