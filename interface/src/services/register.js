@@ -37,21 +37,23 @@ let buttonRegister = document.getElementById('form-register').addEventListener('
         async function registerRequest() {
             try {
                 const response = await fetch('../../../api/controllers/register.php', options)
-
                 const data = await response.json();
-
-                console.log(data);
-
-                alert('Usuário cadastrado!');
-
+                if(response.ok){
+                    console.log(data);
+                    alert('Usuário cadastrado!');
+                    
+                }else{
+                    alert('Houve um erro ao cadastrar usuário!');
+                    const error = await response.json();
+                    console.error(error);
+                }
+                
                 //window.open('../../../index.html', '_self')
             } catch (error) {
-                console.error(error)
+                console.log(error)
+                alert('Erro ao cadastrar usuário: ' + error.message);
             }
         }
         registerRequest()
-
-        
-        
     }
 })
