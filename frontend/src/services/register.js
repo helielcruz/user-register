@@ -7,7 +7,7 @@ let buttonRegister = document.getElementById('form-register').addEventListener('
     const password = document.getElementById('inputPassword').value
     const confirmPassword = document.getElementById('inputConfirmPassword').value
 
-    regexEmail = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.-]+\.[a-z]{2,4}$/;
+    const regexEmail = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.-]+\.[a-z]{2,4}$/;
     
     if (name.length < 2) alert('O campo nome é obrigatório, e deve conter pelo menos duas letras!');
     else if (!regexEmail.test(email)) alert('O campo email é obrigatório, preencha com um email válido!');
@@ -36,12 +36,12 @@ let buttonRegister = document.getElementById('form-register').addEventListener('
 
         async function registerRequest() {
             try {
-                const response = await fetch('../../../api/controllers/register.php', options)
+                const response = await fetch('/../../../user-register/api/controllers/register.php', options)
                 const data = await response.json();
                 if(response.ok){
                     console.log(data);
                     alert('Usuário cadastrado!');
-                    window.open('../../../', '_self')
+                    window.open('/user-register/register', '_self')
                 }else{
                     alert('Houve um erro ao cadastrar usuário!');
                     const error = await response.json();
@@ -49,7 +49,10 @@ let buttonRegister = document.getElementById('form-register').addEventListener('
                 }
             } catch (error) {
                 console.log(error)
-                alert('Erro ao cadastrar usuário: ' + error.message);
+                alert('Erro ao cadastrar usuário!')
+                console.log('Error: ',error.message)
+                console.log('Response: ', error.error)
+
             }
         }
         registerRequest()
