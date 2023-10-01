@@ -35,4 +35,26 @@
             }
         }
     }
+
+    function getUser($sql, $email) {
+        $pdo = databaseConnection();
+        if ($pdo) {
+            try {
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindParam(':email', $email);
+                $stmt->execute();
+                
+                if($stmt->rowCount() > 0) {
+                    return $stmt->fetch(PDO::FETCH_ASSOC);
+                } else {
+                    return false;
+                }
+
+            } catch (PDOException $error) {
+                http_response_code(400);
+                error_log("Exceção capturada: " . $error->getMessage());
+                return $error->getMessage();
+            }
+        }
+    }
 ?>

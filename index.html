@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./interface/style/style.css">
+    <link rel="stylesheet" href="./interface//style/style.css">
     <title>Cadastro de usuário</title>
 </head>
 <body>
@@ -18,9 +18,22 @@
                 <input id="inputPassword" type="password" placeholder="Informe sua senha">
 
                 <button type="submit">Entrar</button>
+
+                <div style="
+                    display: flex;
+                    justify-content: space-around;
+                    margin: 2%;
+                ">
+                    <a class="linkLogin" href="./interface/src/register/register.html" target="_self">
+                        <small>Criar conta</small>
+                    </a>
+                    <a class="linkLogin" href="" >
+                        <small>Esqueci minha senha</small>
+                    </a>
+                </div>
             </form>
         </div>
     </div>
-    <script src=""></script>
+    <script src="./frontend/src/services/login.js"></script>
 </body>
 </html>

@@ -50,3 +50,12 @@
     background-color: rgb(73, 221, 73);
     transform: scale(1.05);
 }
+
+.linkLogin {
+    text-decoration: none!important;
+    color: rgb(9, 67, 85);
+    transition: 0.7s;
+}
+.linkLogin:hover {
+    font-weight: 600;
+}
