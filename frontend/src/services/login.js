@@ -15,11 +15,12 @@ document.getElementById('form-login').addEventListener('submit', (e)=>{
             try {
              
                 const response = await fetch(`/../../../user-register/api/controllers/login.php?email=${email}&password=${password}`)
-
+                const data = await response.json()
                 if (response.ok) {
-                    const data = await response.json()
                     console.log(data)
-                    alert('Logado!')
+                    alert(data.message)
+                }else {
+                    alert(data.message)
                 }
                
             } catch (error) {
