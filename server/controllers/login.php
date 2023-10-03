@@ -1,6 +1,7 @@
 <?php
 
     require_once '../db/database.php';
+    require_once '../services/generateToken.php';
 
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $email = $_GET['email'];
@@ -14,7 +15,13 @@
             echo json_encode(["response" => $result]);
         }else{
             if(password_verify($password,  $result['password'])) {
-                echo json_encode(["response" => $result, "message" => "Logado!"]);
+                $user = [
+                    "id" => $result['id'],
+                    "name" => $result['name'],
+                    "email" => $result['email']
+                ];
+                $token = tokenGenerate($result['id']);
+                echo json_encode(["response" => $user, "token" => $token, "message" => "Logado!"]);
             } else{
                 echo json_encode(["message" => "Senha inválida!"]);
             }

@@ -14,7 +14,7 @@ document.getElementById('form-login').addEventListener('submit', (e)=>{
         (async () => {
             try {
              
-                const response = await fetch(`/../../../user-register/api/controllers/login.php?email=${email}&password=${password}`)
+                const response = await fetch(`/../../../user-register/server/controllers/login.php?email=${email}&password=${password}`)
                 const data = await response.json()
                 if (response.ok) {
                     console.log(data)

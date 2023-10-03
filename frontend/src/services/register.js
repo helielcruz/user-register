@@ -36,7 +36,7 @@ let buttonRegister = document.getElementById('form-register').addEventListener('
 
         async function registerRequest() {
             try {
-                const response = await fetch('/../../../user-register/api/controllers/register.php', options)
+                const response = await fetch('/../../../user-register/server/controllers/register.php', options)
                 const data = await response.json();
                 if(response.ok){
                     console.log(data);
