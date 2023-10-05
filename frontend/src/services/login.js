@@ -13,12 +13,13 @@ document.getElementById('form-login').addEventListener('submit', (e)=>{
     }else{
         (async () => {
             try {
-             
                 const response = await fetch(`/../../../user-register/server/controllers/login.php?email=${email}&password=${password}`)
                 const data = await response.json()
                 if (response.ok) {
-                    console.log(data)
-                    alert(data.message)
+                    console.log('Recebe o token',data)
+                    localStorage.setItem('token', data.token)
+                    
+                    window.open('http://localhost/user-register/home', '_self');
                 }else {
                     alert(data.message)
                 }
