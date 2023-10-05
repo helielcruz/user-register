@@ -36,7 +36,8 @@
         }
     }
 
-    function getUser($sql, $email) {
+    function getUser($email) {
+        $sql = "SELECT * FROM users WHERE email=:email";
         $pdo = databaseConnection();
         if ($pdo) {
             try {
