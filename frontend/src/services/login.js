@@ -16,10 +16,13 @@ document.getElementById('form-login').addEventListener('submit', (e)=>{
                 const response = await fetch(`/../../../user-register/server/controllers/login.php?email=${email}&password=${password}`)
                 const data = await response.json()
                 if (response.ok) {
-                    console.log('Recebe o token',data)
-                    localStorage.setItem('token', data.token)
+                    if(data.auth){
+                        localStorage.setItem('token', data.token)
+                        window.open('http://localhost/user-register/home', '_self');
+                    }else{
+                        alert(data.message)
+                    }
                     
-                    window.open('http://localhost/user-register/home', '_self');
                 }else {
                     alert(data.message)
                 }

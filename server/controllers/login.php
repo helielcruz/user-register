@@ -12,7 +12,7 @@
         $result = getUser($email);
 
         if(!$result){
-            echo json_encode(["message" => "Usuário não encontrado!"]);
+            echo json_encode(["message" => "Usuário não encontrado!", "auth" => false]);
         }else{
             if(password_verify($password,  $result['password'])) {
                 $user = [
@@ -20,9 +20,9 @@
                     "email" => $result['email']
                 ];
                 $token = tokenGenerate($user);
-                echo json_encode(["response" => $user, "token" => $token, "message" => "Logado!"]);
+                echo json_encode(["response" => $user, "token" => $token, "message" => "Logado!", "auth" => true]);
             } else{
-                echo json_encode(["message" => "Senha inválida!"]);
+                echo json_encode(["message" => "Senha inválida!", "auth" => false]);
             }
         }
 
