@@ -41,7 +41,7 @@ let buttonRegister = document.getElementById('form-register').addEventListener('
                 if(response.ok){
                     console.log(data);
                     alert('Usuário cadastrado!');
-                    window.open('/user-register/register', '_self')
+                    window.open('/user-register', '_self')
                 }else{
                     alert('Houve um erro ao cadastrar usuário!');
                     const error = await response.json();
