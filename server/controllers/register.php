@@ -8,19 +8,24 @@
 
         $data = json_decode($dataJson, true);
 
-        $userData = $data;
+        $emailVerify = getUser($data['email']);
 
-        $passwordHash = password_hash($data['password'], PASSWORD_DEFAULT);
+        if(!$emailVerify) {
+            $passwordHash = password_hash($data['password'], PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO users (name, email, password) VALUES (:name, :email, :password)";
+            $sql = "INSERT INTO users (name, email, password) VALUES (:name, :email, :password)";
 
-        $result = insertUser($sql, $data['name'], $data['email'], $passwordHash);
+            $result = insertUser($sql, $data['name'], $data['email'], $passwordHash);
 
-        if ($result === true) {
-            echo json_encode(["message" => "Usuário cadastrado com sucesso", "user" => $result]);
-        } else {
+            if ($result === true) {
+                echo json_encode(["message" => "Usuário cadastrado com sucesso", "user" => $result]);
+            } else {
+                http_response_code(400);
+                echo json_encode(["message" => "Erro ao inserir usuário", "error" => $result]);
+            }
+        }else{
             http_response_code(400);
-            echo json_encode(["message" => "Erro ao inserir usuário", "error" => $result]);
+            echo json_encode(["message" => "Esse email já possui conta ativa!"]);
         }
     }
 
