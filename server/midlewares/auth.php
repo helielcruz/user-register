@@ -1,17 +1,27 @@
 <?php
     require_once '../services/validateToken.php';
-    
-    function auth($token){
-        $key = "chave-ultra-secreta";
 
-        $result = validateToken($token, $key);
+        function auth (){
+            $key = "chave-ultra-secreta";
+            $headers = getallheaders();
+            if(isset($headers['Authorization'])) {
+        
+                if (strpos($headers['Authorization'], "Bearer ") === 0) {
+                    
+                    $token = str_replace('Bearer ', '', $headers['Authorization']);
+        
+                    $result = validateToken($token, $key);
 
-        if ($result) {
-            return ["auth" => true, "message" => "Authenticated"];
-        } else {
-            http_response_code(401);
-            return ["auth" => false, "message" => "Token inválido!"];
+                    if ($result) {
+                        
+                        return json_encode(["auth" => true, "message" => "Authenticated", "user" => $result]);
+                    } else {
+                        http_response_code(401);
+                        return json_encode(["auth" => false, "message" => "Invalid token!", "token" => $token, "result" => $result]);
+                    }
+                }
+            }else{
+                return json_encode(["auth" => false, "message" => "Missing token!", "headers" => $headers['Authorization']]);
+            }
         }
-    }
-
 ?>
