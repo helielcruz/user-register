@@ -8,6 +8,7 @@
         $user = getUser($auth->user->data->email);
         echo json_encode($user);
     } else{
+        http_response_code(401);
         echo json_encode(["message" => "Invalid token!"]);
     }
 ?>
