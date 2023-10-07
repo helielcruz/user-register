@@ -5,7 +5,7 @@ const auth = {
 
         const response = await fetch(`http://localhost/user-register/server/midlewares/auth.php`, { method: 'GET', headers: { "Authorization": "Bearer "+token, "Content-Type": "application/json" } })
 
-        if(response.ok) window.open('http://localhost/user-register/home', '_self')
+        if(response.ok && token) window.open('http://localhost/user-register/home', '_self')
     }
 }
 
