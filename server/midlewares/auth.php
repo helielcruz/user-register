@@ -21,7 +21,9 @@
                     }
                 }
             }else{
+                http_response_code(401);
                 return json_encode(["auth" => false, "message" => "Missing token!", "headers" => $headers['Authorization']]);
             }
         }
+        auth()
 ?>

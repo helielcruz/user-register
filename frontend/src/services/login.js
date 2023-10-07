@@ -1,5 +1,10 @@
+import Auth from './auth.js'
 
-document.getElementById('form-login').addEventListener('submit', (e)=>{
+document.addEventListener('DOMContentLoaded', async () => {
+    Auth.verify()
+})
+
+document.getElementById('form-login').addEventListener('submit', async (e)=>{
     e.preventDefault()
     const email = document.getElementById('inputEmail').value
     const password = document.getElementById('inputPassword').value
@@ -26,11 +31,10 @@ document.getElementById('form-login').addEventListener('submit', (e)=>{
                 }else {
                     alert(data.message)
                 }
-               
+            
             } catch (error) {
                 console.log(error);
             }
         })()
     }
-
 })

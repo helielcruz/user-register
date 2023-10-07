@@ -1,5 +1,10 @@
+import Auth from './auth.js'
 
-let buttonRegister = document.getElementById('form-register').addEventListener('submit', (e) => {
+document.addEventListener('DOMContentLoaded', async () => {
+    Auth.verify()
+})
+
+document.getElementById('form-register').addEventListener('submit', (e) => {
     e.preventDefault()
 
     const name = document.getElementById('inputName').value
