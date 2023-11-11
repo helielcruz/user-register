@@ -1,7 +1,7 @@
 <?php
 
     function databaseConnection() {
-        $path = __DIR__ . '/../.env';
+        $path = __DIR__ . '/../../.env';
 
         $enviroments = parse_ini_file($path);
 
