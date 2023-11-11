@@ -1,12 +1,31 @@
 @charset "UTF-8";
-@font-face { 
-   font-family: 'PoiretOne-Regular';
-   src: url('./Poiret_One/PoiretOne-Regular.ttf') format('truetype');
- }
 
-*{
-    font-family: Arial, Helvetica, sans-serif;
+@font-face {
+    font-family: 'PoiretOne-Regular';
+    src: url('./Poiret_One/PoiretOne-Regular.ttf') format('truetype');
 }
+
+:root {
+    --dark-green: rgb(32, 49, 32);
+    --font-extra-white-blue: aliceblue;
+    --font-link-dark-blue: rgb(9, 67, 85);
+    --btn-form-blue: rgb(73, 187, 221);
+    --btn-form-hover-green: rgb(73, 221, 73);
+    --btn-logout-red: #dd3838;
+    --border-input-gray: gray;
+    --box-shadow-black: black;
+    --form-background-transparent-gray: rgba(255, 254, 254, 0.7);
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
 
 .page-login {
     background-image: url('./images/mountains-1587287_1920.jpg');
@@ -18,63 +37,157 @@
     background-size: cover;
 }
 
-.FormContainer{
+.FormContainer {
     display: block;
     position: relative;
     margin-top: 8%;
 }
 
-.FormContainer h1{
+.FormContainer h1 {
     text-align: center;
-    color: aliceblue;
+    color: var(--font-extra-white-blue);
     font-family: 'PoiretOne-Regular';
 }
 
 .FormContainer form {
     display: flex;
     flex-flow: column nowrap;
-    background-color: rgba(255, 254, 254, 0.7);
+    background-color: var(--form-background-transparent-gray);
     width: 25%;
     margin: 0 auto;
     border-radius: 5px;
-    box-shadow: 0px 0px 5px 1px black;
+    box-shadow: 0px 0px 5px 1px var(--box-shadow-black);
     padding: 15px;
 }
 
 .FormContainer input {
     margin: 5px 0px;
-    border: solid 1px gray;
+    border: solid 1px var(--border-input-gray);
     outline: none;
     padding: 2%;
 }
 
 .FormContainer button {
-    background-color: rgb(73, 187, 221);
+    background-color: var(--btn-form-blue);
     border: none;
-    box-shadow: 0px 0px 3px 1px rgb(32, 49, 32);
-    color: white;
-    font-weight:600;
+    box-shadow: 0px 0px 3px 1px var(--dark-green);
+    color: var(--font-extra-white-blue);
+    font-weight: 600;
     margin-top: 2%;
     padding: 2%;
     transition: 0.7s;
 }
+
 .FormContainer button:hover {
-    background-color: rgb(73, 221, 73);
+    background-color: var(--btn-form-hover-green);
     transform: scale(1.05);
 }
 
 .linkLogin {
-    text-decoration: none!important;
-    color: rgb(9, 67, 85);
+    text-decoration: none !important;
+    color: var(--font-link-dark-blue);
     transition: 0.7s;
 }
+
 .linkLogin:hover {
     font-weight: 600;
 }
 
+
+#homepage {
+    display: grid;
+    grid-template-rows: 20% 70% 10%;
+    height: 96vh;
+    background-color: #3b3737;
+    height: 100vh;
+}
+
+#nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    order: 0;
+    padding: 0% 2%;
+    height: 20vh;
+    overflow-y: hidden;
+}
+
 #title {
+    color: var(--btn-form-blue);
+    font-family: 'PoiretOne-Regular';
+}
+
+#talk-history {
+    display: flex;
+    border: solid 1px var(--btn-form-blue);
+    border-radius: 20px;
+    margin: 0% 2% 3% 2%;
+    background-color: var(--font-extra-white-blue);
+    place-items: center;
+}
+
+#text-box {
+    display: flex;
+    order: 2;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 100%;
+}
+
+#text-box form {
     display: grid;
     place-items: center;
-    height: 90vh;
-    overflow-y: hidden;
+    width: 70%;
+    grid-template-columns: 90% 10%;
+    flex-flow: column nowrap;
+}
+
+
+
+#selectCoins {
+    width: 80%;
+    height: 100%;
+    padding: 10px;
+    outline: none;
+    border: solid 2px var(--btn-form-blue);
+    border-radius: 5px;
+}
+
+#text-box input:focus {
+    box-shadow: 0px 0px 5px 1px var(--btn-form-blue);
+}
+
+#sendButton {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#sendButton i {
+    font-size: xx-large;
+    color: var(--btn-form-blue);
+    background-color: rgba(255, 255, 255, 0);
+    transition: 0.7s;
+    
+    
+}
+#sendButton i:hover {
+    color: var(--btn-form-hover-green);
+    text-shadow: 0 0 10px #ffffff;
+}
+
+#logoutButton {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#logoutButton i {
+    font-size: xx-large;
+    color: var(--btn-form-blue);
+    transition: 0.7s;
+}
+
+#logoutButton i:hover {
+    color: var(--btn-logout-red);
+    cursor: pointer;
+    text-shadow: 0 0 5px #ffffff;
 }

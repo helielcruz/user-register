@@ -1,7 +1,7 @@
-import Auth from './auth.js'
+import Auth from './auth/auth.js'
 
 document.addEventListener('DOMContentLoaded', async () => {
-    Auth.verify()
+    if (await Auth.verify()) window.open('http://localhost/user-register/home', '_self') 
 })
 
 document.getElementById('form-login').addEventListener('submit', async (e)=>{
