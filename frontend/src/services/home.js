@@ -1,7 +1,5 @@
 import Auth from "./auth/auth.js";
 import currentUser from './user/currentUser.js'
-import env from './env.js'
-
 
 try {
     let user
@@ -23,16 +21,17 @@ try {
     document.getElementById('formCurrencyExchange').addEventListener('submit', async (e)=>{
         e.preventDefault()
 
+        let CoinsJson = await fetch('http://localhost/user-register/frontend//src/coins/coins.json')
+        CoinsJson = await CoinsJson.json()
+
         let coins =  document.getElementById('selectCoins')
         let textHistory =  document.getElementById('text-history')
         if(!coins.value) {
-            console.log('1', coins.value);
             coins.style.border = 'solid 1px #ad2828'
             setTimeout(() => {
                 coins.style.border = 'solid 1px rgb(73, 187, 221)'
             }, 2000);
         } else {
-            console.log('2', coins.value);
             let sendButton = document.getElementById('sendButton')
             let sendIcon = document.getElementById('sendIcon')
             sendIcon.style.cursor = 'wait'
@@ -48,8 +47,16 @@ try {
                 sendIcon.style.cursor = 'default'
                 let date = new Date(create_date)
                 date.toLocaleString('pt-BR')
-                textHistory.innerHTML = 'A áltima cotação registrada em '+`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}
-                 às `+' para '+name+' foi de '+bid
+                const hours = date.getHours().toString().length > 1 ? date.getHours() : '0'+date.getHours()
+                const minutes = date.getMinutes().toString().length > 1 ? date.getMinutes() : '0'+date.getMinutes()
+                const seconds = date.getSeconds().toString().length > 1 ? date.getSeconds() : '0'+date.getSeconds()
+                const coinValue = parseFloat(bid)
+                const formatedCoin = coinValue.toLocaleString(CoinsJson[codein], { style: 'currency', currency: codein, minimumFractionDigits: 2 })
+
+                textHistory.innerHTML = `A última cotação registrada em
+                 ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}
+                 às ${hours}:${minutes}:${seconds}
+                 para ${name} foi de ${formatedCoin}`
             }
 
 
