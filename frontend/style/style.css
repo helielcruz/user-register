@@ -118,12 +118,13 @@
 }
 
 #talk-history {
-    display: flex;
+    display: grid;
     border: solid 1px var(--btn-form-blue);
     border-radius: 20px;
     margin: 0% 2% 3% 2%;
     background-color: var(--font-extra-white-blue);
     place-items: center;
+    justify-content: center;
 }
 
 #text-box {
