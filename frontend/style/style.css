@@ -27,10 +27,7 @@
 
 
 
-.page-login {
-    background-image: url('./images/mountains-1587287_1920.jpg');
-    background-size: cover;
-}
+
 
 .page-register {
     background-image: url('./images/mountains-1587287_1920.jpg');
@@ -47,40 +44,85 @@
     text-align: center;
     color: var(--font-extra-white-blue);
     font-family: 'PoiretOne-Regular';
+    margin-bottom: 2%;
 }
 
-.FormContainer form {
-    display: flex;
-    flex-flow: column nowrap;
-    background-color: var(--form-background-transparent-gray);
-    width: 25%;
-    margin: 0 auto;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px 1px var(--box-shadow-black);
-    padding: 15px;
+.page-login {
+    background-image: url('./images/mountains-1587287_1920.jpg');
+    background-size: cover;
 }
 
-.FormContainer input {
-    margin: 5px 0px;
-    border: solid 1px var(--border-input-gray);
-    outline: none;
-    padding: 2%;
-}
+@media (pointer: fine){
 
-.FormContainer button {
-    background-color: var(--btn-form-blue);
-    border: none;
-    box-shadow: 0px 0px 3px 1px var(--dark-green);
-    color: var(--font-extra-white-blue);
-    font-weight: 600;
-    margin-top: 2%;
-    padding: 2%;
-    transition: 0.7s;
+    .FormContainer form {
+        display: flex;
+        flex-flow: column nowrap;
+        background-color: var(--form-background-transparent-gray);
+        width: 25%;
+        margin: 0 auto;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px 1px var(--box-shadow-black);
+        padding: 15px;
+    }
+    
+    .FormContainer input {
+        margin: 5px 0px;
+        border: solid 1px var(--border-input-gray);
+        outline: none;
+        padding: 2%;
+    }
+    
+    .FormContainer button {
+        background-color: var(--btn-form-blue);
+        border: none;
+        box-shadow: 0px 0px 3px 1px var(--dark-green);
+        color: var(--font-extra-white-blue);
+        font-weight: 600;
+        margin-top: 2%;
+        padding: 2%;
+        transition: 0.7s;
+    }
+    
+    .FormContainer button:hover {
+        background-color: var(--btn-form-hover-green);
+        transform: scale(1.05);
+    }
 }
+@media (pointer: coarse){
 
-.FormContainer button:hover {
-    background-color: var(--btn-form-hover-green);
-    transform: scale(1.05);
+    .FormContainer form {
+        display: flex;
+        flex-flow: column nowrap;
+        background-color: var(--form-background-transparent-gray);
+        width: 80%;
+        margin: 0 auto;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px 1px var(--box-shadow-black);
+        padding: 15px;
+    }
+    
+    .FormContainer input {
+        margin: 5px 0px;
+        border: solid 1px var(--border-input-gray);
+        outline: none;
+        padding: 2%;
+    }
+    
+    .FormContainer button {
+        background-color: var(--btn-form-blue);
+        border: none;
+        box-shadow: 0px 0px 3px 1px var(--dark-green);
+        color: var(--font-extra-white-blue);
+        font-weight: 600;
+        margin-top: 2%;
+        padding: 2%;
+        transition: 0.7s;
+    }
+    
+    .FormContainer button:hover {
+        background-color: var(--btn-form-hover-green);
+        transform: scale(1.05);
+    }
 }
 
 .linkLogin {
