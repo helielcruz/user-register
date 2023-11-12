@@ -1,7 +1,7 @@
 {
-    "USD": "en-US",
-    "BRL": "pt-BR",
-    "BRLT": "pt-BR",
-    "GBP": "GBP",
-    "EUR": "de-DE"
+    "USD": ["USD", "en-US"],
+    "BRL": ["BRL", "pt-BR"],
+    "BRLT": ["BRL", "pt-BR"],
+    "GBP": ["GBP", "en-GB"],
+    "EUR": ["EUR", "de-DE"]
 }

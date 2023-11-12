@@ -41,7 +41,6 @@ try {
 
             if (response.ok) {
                 const data = await response.json()
-                console.log(data);
                 const {bid, create_date, code, codein, name} = data[coins.value.replace('-', '')]
                 sendIcon.className = 'fa-solid fa-paper-plane'
                 sendIcon.style.cursor = 'default'
@@ -51,8 +50,9 @@ try {
                 const minutes = date.getMinutes().toString().length > 1 ? date.getMinutes() : '0'+date.getMinutes()
                 const seconds = date.getSeconds().toString().length > 1 ? date.getSeconds() : '0'+date.getSeconds()
                 const coinValue = parseFloat(bid)
-                const formatedCoin = coinValue.toLocaleString(CoinsJson[codein], { style: 'currency', currency: codein, minimumFractionDigits: 2 })
+                const formatedCoin = coinValue.toLocaleString(CoinsJson[codein][1], { style: 'currency', currency: CoinsJson[codein][0], minimumFractionDigits: 2 })
 
+                console.log(name);
                 textHistory.innerHTML = `A última cotação registrada em
                  ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}
                  às ${hours}:${minutes}:${seconds}
